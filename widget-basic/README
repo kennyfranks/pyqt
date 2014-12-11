@@ -7,7 +7,7 @@ Steps:
 Create the interface using Qt Designer 
 Save the finished ui, create a *.ui file
 Create the pyqt generated ui file using the command
-	pyuic4 [old-file].ui > [new-file].py
+	$> pyuic4 [old-file].ui > [new-file].py
 You must alter some areas of the generated code:
 	ui class inherits QtGui.QtWidget not widget
 	add constructor to main Ui class
