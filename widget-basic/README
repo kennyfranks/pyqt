@@ -1,0 +1,34 @@
+Written using linux, ubuntu 14.04 xfce4
+
+Must install tools to work with python and pyqt:
+sudo apt-get install qt4-dev-tools qt4-designer
+
+Steps:
+Create the interface using Qt Designer 
+Save the finished ui, create a *.ui file
+Create the pyqt generated ui file using the command
+	pyuic4 [old-file].ui > [new-file].py
+You must alter some areas of the generated code:
+	ui class inherits QtGui.QtWidget not widget
+	add constructor to main Ui class
+	add boilerplate code to run the gui app
+
+##########################################################################
+Sample class initiator
+
+class Ui_Form(QtGui.QtWidget):   #replaced 'object' in parameter list
+	def __init__(self):
+		QtGui.QtWidget.__init__(self)	#init itself
+		self.SetupUi()					#defined in class
+
+##########################################################################
+Sample boilerplater app gui run code:	
+
+import sys									#use(s): sys.exit()
+
+if __init__ == '__main__':					#
+	app = QtGui.QApplication(self.argv) 	#
+	mainwindow = Ui_Form()					#
+	mainwindow.show()						#
+	sys.exit(app.exec_()) 					# notice exec_() not exec() 
+##########################################################################
